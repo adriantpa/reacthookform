@@ -9,7 +9,13 @@ import { FormValues, schema } from "../../models";
 const CustomForm = () => {
   const {control, handleSubmit, formState: {errors}} = useForm<FormValues>({
     resolver: zodResolver(schema),
-    mode: "onBlur"
+    mode: "onBlur",
+    defaultValues: {
+      name: "test",
+      email: "test@email.com",
+      password: "123123",
+      confirmPassword: "123123"
+    }
   })
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
